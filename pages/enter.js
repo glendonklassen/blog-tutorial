@@ -9,11 +9,7 @@ export default function Enter({ }) {
     const { user, username } = useContext(UserContext);
     return (
         <main>
-            {user ?
-                !username ? <UsernameForm /> : <SignOutButton />
-                :
-                <SignInButton />
-            }
+            {user ? !username ? <UsernameForm /> : <SignOutButton /> : <SignInButton />}
         </main>
     )
 }
@@ -114,12 +110,12 @@ function UsernameForm() {
 
 function UsernameMessage({ username, isValid, loading }) {
     if (loading) {
-      return <p>Checking...</p>;
+        return <p>Checking...</p>;
     } else if (isValid) {
-      return <p className="text-success">{username} is available!</p>;
+        return <p className="text-success">{username} is available!</p>;
     } else if (username && !isValid) {
-      return <p className="text-danger">That username is taken!</p>;
+        return <p className="text-danger">That username is taken!</p>;
     } else {
-      return <p></p>;
+        return <p></p>;
     }
-  }
+}
