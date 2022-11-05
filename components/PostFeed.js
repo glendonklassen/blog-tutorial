@@ -27,7 +27,6 @@ function PostItem({ post, admin = false }){
         <span className="push-left">💗 {post.heartCount || 0} Hearts</span>
       </footer>
 
-      {/* If admin view, show extra controls for user */}
       {admin && (
         <>
           <Link href={`/admin/${post.slug}`}>
