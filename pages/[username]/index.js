@@ -19,7 +19,9 @@ export async function getServerSideProps({ query }) {
         constraints.push(orderBy('createdAt', 'desc'))
         constraints.push(limit(5))
         const q = firestoreQuery(collection(db, 'posts'), ...constraints);
-        posts = (await getDocs(q)).docs.map(postToJSON);
+        const d = await getDocs(q);
+        console.log(d)
+        posts = (d).docs.map(postToJSON);
     }
 
     return {
@@ -40,7 +42,7 @@ export function postToJSON(doc) {
     const data = doc.data();
     return {
         ...data,
-        createdAt: data.createdAt.toMillis(),
-        updatedAt: data.updatedAt.toMillis(),
+        createdAt: data?.createdAt?.toMillis(),
+        updatedAt: data?.updatedAt?.toMillis(),
     }
 }
