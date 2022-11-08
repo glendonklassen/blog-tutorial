@@ -1,17 +1,17 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useContext } from 'react';
-import { UserContext } from "../lib/context";
-import { auth } from "../lib/firebase"
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useContext } from 'react'
+import { UserContext } from '../lib/context'
+import { auth } from '../lib/firebase'
 
 export default function Navbar() {
-  const { user, username } = useContext(UserContext);
+  const { user, username } = useContext(UserContext)
 
-  const router = useRouter();
+  const router = useRouter()
 
   const signOut = () => {
-    auth.signOut();
-    router.reload();
+    auth.signOut()
+    router.reload()
   }
 
   return (
@@ -50,5 +50,5 @@ export default function Navbar() {
         )}
       </ul>
     </nav>
-  );
+  )
 }

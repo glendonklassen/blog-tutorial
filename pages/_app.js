@@ -5,7 +5,7 @@ import { UserContext } from '../lib/context'
 import { useUserData } from '../lib/hooks'
 
 export default function App({ Component, pageProps }) {
-  const userData = useUserData();
+  const userData = useUserData()
 
   return (
     <UserContext.Provider value={userData}>

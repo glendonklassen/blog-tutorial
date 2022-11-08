@@ -1,7 +1,10 @@
-export default function UserProfile({ user }){
+export default function UserProfile({ user }) {
   return (
     <div className="box-center">
-      <img src={user?.photoURL} className="card-img-center" />
+      <img
+        src={user?.photoURL}
+        className="card-img-center"
+      />
       <p>
         <i>@{user?.username}</i>
       </p>
@@ -9,4 +12,3 @@ export default function UserProfile({ user }){
     </div>
   )
 }
-
