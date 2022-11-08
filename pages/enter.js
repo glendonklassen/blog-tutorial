@@ -43,8 +43,6 @@ function UsernameForm() {
     const checkUsernameHandler = async (username) => {
         if (username.length >= 3) {
             const docSnap = await getDoc(doc(db, 'usernames', username));
-            console.log('Firestore read executed.');
-            console.log(docSnap)
             setIsValid(!docSnap.exists())
             setLoading(false);
         }
@@ -58,11 +56,8 @@ function UsernameForm() {
     const onSubmit = async (e) => {
         e.preventDefault();
         const batch = writeBatch(db);
-        console.log("writeBatch")
         batch.set(doc(db, 'users', user.uid), { username: formValue, photoURL: user.photoURL, displayName: user.displayName });
-        console.log("set(userDoc")
         batch.set(doc(db, 'usernames', formValue), { uid: user.uid });
-        console.log("set(usernameDoc")
 
         await batch.commit();
     }

@@ -20,8 +20,7 @@ export async function getServerSideProps({ query }) {
         constraints.push(limit(5))
         const q = firestoreQuery(collection(db, 'posts'), ...constraints);
         const d = await getDocs(q);
-        console.log(d)
-        posts = (d).docs.map(postToJSON);
+        posts = d.docs.map(postToJSON);
     }
 
     return {

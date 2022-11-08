@@ -50,9 +50,11 @@ export async function getServerSideProps(context){
   constraints.push(orderBy('createdAt', 'desc'))
   constraints.push(limit(LIMIT))
   const q = query(collectionGroup(db, 'posts'), ...constraints);
-  const posts = (await getDocs(q)).docs.map(postToJSON);
+  const docsRef = await getDocs(q)
+  console.log(`now comes docs.map`)
+  const posts = docsRef.docs.map(postToJSON);
 
   return {
-    props: { posts}
+    props: { posts }
   }
 }
