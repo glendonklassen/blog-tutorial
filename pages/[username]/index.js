@@ -42,7 +42,6 @@ export function postToJSON(doc) {
     return null
   }
   const data = doc.data()
-
   return {
     ...data,
     createdAt: data?.createdAt?.toMillis(),
