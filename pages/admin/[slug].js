@@ -9,6 +9,8 @@ import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
+import ImageUploader from '../../components/ImageUploader'
+
 export default function AdminPostsPage({}) {
   return (
     <main>
@@ -97,6 +99,7 @@ function PostForm({ defaultValues, postRef, preview }) {
       )}
       {!preview && (
         <div className={preview ? styles.hidden : styles.controls}>
+          <ImageUploader />
           <textarea
             name="content"
             className={styles.textarea}
